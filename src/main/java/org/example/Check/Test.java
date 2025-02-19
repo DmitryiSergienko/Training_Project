@@ -11,4 +11,9 @@ import lombok.ToString;
 public class Test {
     private int age;
     private String name;
+
+    public String toString(){
+
+        return String.valueOf(age);
+    }
 }

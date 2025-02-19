@@ -1,5 +1,8 @@
 plugins {
-    id 'java-library'
+    id 'java'
+    id 'io.freefair.lombok' version '8.6'
+    id 'io.qameta.allure' version '2.12.0'
+    id 'io.qameta.allure-adapter' version '2.12.0'
 }
 
 group = 'org.example'
@@ -9,14 +12,18 @@ repositories {
     mavenCentral()
 }
 
+// Define the version of Allure you want to use via the allureVersion property
+def allureVersion = "2.29.0"
+
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
 
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
-}
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
 
-test {
-    useJUnitPlatform()
+    // Import allure-bom to ensure correct versions of all the dependencies are used
+    testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
+    // Add necessary Allure dependencies to dependencies section
+    testImplementation "io.qameta.allure:allure-junit5"
 }
