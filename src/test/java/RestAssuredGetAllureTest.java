@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import io.qameta.allure.Step;
 
 import static io.qameta.allure.SeverityLevel.*;
 import static io.restassured.RestAssured.given;
@@ -36,6 +37,10 @@ public class RestAssuredGetAllureTest {
                 .auth().oauth2(bearerToken)
                 .get("/api/users/me")
                 .then().assertThat().body("data.name",equalTo("Жак-Ив Кусто"));
+
+        printStep1(); //Тестовый Step#1
+        printStep2(); //Тестовый Step#2
+        printStep3(); //Тестовый Step#3
     }
 
     @Test
@@ -71,4 +76,14 @@ public class RestAssuredGetAllureTest {
     public void printResponseBodyToConsole(Response response){
         System.out.println(response.body().asString());
     }
+
+    //============================================================================================================
+    @Step("Просто тестовый шаг №1")
+    public void printStep1(){ System.out.println("Чек шаг №1"); }
+
+    @Step("Просто тестовый шаг №2")
+    public void printStep2(){ System.out.println("Чек шаг №2"); }
+
+    @Step("Просто тестовый шаг №3")
+    public void printStep3(){ System.out.println("Чек шаг №3"); }
 }
