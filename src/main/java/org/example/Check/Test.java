@@ -9,8 +9,10 @@ import lombok.ToString;
 @ToString
 
 public class Test {
-    private int age;
-    private String name;
+    public int age;
+    public String name;
+
+    public Test(){}
 
     public String toString(){
 
