@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class RestAssuredGetAllureTest {
-    String bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2IyZWFkYjEzZDIzMTAwM2QyMDM3YmEiLCJpYXQiOjE3Mzk3ODAxMDYsImV4cCI6MTc0MDM4NDkwNn0.FAXHwu6jGMpYkZ_KG0OzbqT8poCdZJjYvayuO2CeFoE";
+    String bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjOTI0NTQ1MGFlODAwM2Q4YzllZTYiLCJpYXQiOjE3NDA0MTE0OTQsImV4cCI6MTc0MTAxNjI5NH0.8KY7f0SdKnLWseJGc_Ip55Sz5YWESbRndAy6HqfBMvg";
 
     @BeforeEach
     public void setUp() {
