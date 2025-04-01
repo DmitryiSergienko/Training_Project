@@ -29,6 +29,13 @@ dependencies {
     testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
     // Add necessary Allure dependencies to dependencies section
     testImplementation "io.qameta.allure:allure-junit5"
+
+    // Добавляем Selenium (если еще не добавлен)
+    implementation 'org.seleniumhq.selenium:selenium-java:4.30.0'
+
+    testImplementation 'junit:junit:5.10.0'
+
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
 }
 
 allure {
@@ -55,4 +62,10 @@ tasks.withType(Test).configureEach {
 
     systemProperties(System.getProperties())
     systemProperty 'selenide.threadCheckInterval', '0'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // Укажите версию Java, которую используете
+    }
 }
