@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,17 +44,16 @@ public class MestoMainWindow extends BaseTest {
     }
 
     @Test
-    public void allButton() { //Проверка на наличие кнопки
+    public void allButton() throws InterruptedException { //Проверка на наличие кнопки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".profile__title"))));
+        Thread.sleep(10000); // Ожидание 10 сек.
         List<WebElement> buttons = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//button")));
 
-        System.out.println(buttons.size());
-        for (WebElement button : buttons) {
-            System.out.println(button.getText().trim());
-        }
+        System.out.println("Всего кнопок на странице: " + buttons.size());
 
         String textOutButton = buttons.getFirst().getText().trim();
-        Assertions.assertEquals("Войти", textOutButton, "Текст кнопки не соответствует!");
+        Assertions.assertEquals("Выйти", textOutButton, "Текст кнопки не соответствует!");
     }
 
     @Test // Первое задание Практикума
