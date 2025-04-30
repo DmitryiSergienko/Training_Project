@@ -1,6 +1,11 @@
 package org.example;
 
 import org.example.Check.Test;
+import org.example.Praktikum.User;
+import org.example.Praktikum.UserProcessor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,6 +57,13 @@ public class Main {
         }
 
         System.out.println("Программа продолжает работу...");
+
+        List<User> users = new ArrayList<>();
+        users.add(new User(1, "John", 25));
+        users.add(new User(2, "Alice", 30));
+        users.add(new User(3, "Bob", 22));
+
+        UserProcessor.processUsers(users, user -> System.out.println("User: " + user.getName() + ", Age: " + user.getAge()));
     }
 
     // Метод для деления двух чисел
