@@ -39,7 +39,7 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.4.14'
 
     // Добавляем Selenide
-    implementation("com.codeborne:selenide:7.8.1") // Укажите последнюю версию
+    implementation("com.codeborne:selenide:7.9.2") // Укажите последнюю версию
 
     // Опционально: добавьте зависимости для JUnit или TestNG (если используете их)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0-M2")
